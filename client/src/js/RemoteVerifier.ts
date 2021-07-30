@@ -11,6 +11,10 @@ interface FramesRequestData {
   readonly token: string;
 }
 
+export interface VerifyToken {
+  token: string;
+}
+
 interface FramesResponseData {
   readonly message: string;
 }
@@ -103,6 +107,7 @@ export class RemoteVerifier {
           Logger.info(response);
           const verifyResponseData: FramesResponseData = response.data;
           Logger.info(verifyResponseData);
+          Logger.info(challengeId);
           Logger.info("frame successfully uploaded");
           resolve();
         })
@@ -151,4 +156,8 @@ export class RemoteVerifier {
         errorCallback(error);
       });
   }
+
+  // static getUserToken(): VerifyToken {
+  //   return (window as any).VerifyToken
+  // }
 }

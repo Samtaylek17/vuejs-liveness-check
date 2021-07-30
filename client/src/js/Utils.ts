@@ -116,4 +116,10 @@ export class Utils {
     Logger.info(`userId=${userId}`);
     return userId;
   }
+
+  static getUserDetails() {
+    const userDetails = window.localStorage.getItem("challengeDetails");
+    Logger.info(`Token=${userDetails}`);
+    return userDetails;
+  }
 }

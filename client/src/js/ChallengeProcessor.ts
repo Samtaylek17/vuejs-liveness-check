@@ -93,7 +93,7 @@ export class ChallengeProcessor {
     Logger.debug("video event handler");
     if (challengeProcessor.videoElement.paused || challengeProcessor.videoElement.ended) {
       Logger.debug("video paused or ended");
-      return setTimeout(() => ChallengeProcessor.process(challengeProcessor), 10);
+      return setTimeout(() => ChallengeProcessor.process(challengeProcessor), 15);
     }
 
     if (Utils.isProfiling()) {
@@ -168,7 +168,7 @@ export class ChallengeProcessor {
       // if successfully completed locally, pass along remoteVerifier to callback for remote verification
       challengeProcessor.endCallback(localSuccess, localSuccess ? challengeProcessor.remoteVerifier : undefined);
     } else {
-      const delay = 1000 / parseInt(Utils.getConfig().MAX_FPS);
+      const delay = 10000 / parseInt(Utils.getConfig().MAX_FPS);
       setTimeout(() => ChallengeProcessor.process(challengeProcessor), delay);
     }
   }

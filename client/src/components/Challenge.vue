@@ -18,6 +18,14 @@ SPDX-License-Identifier: MIT-0
     <div class="helpContainer clearfix">
       <div class="float-left messageContainer">
         <div class="message">
+          <h5>User Id: {{ userId }}</h5>
+          <h5 v-bind:token="user.token">Token: {{ user }}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="helpContainer clearfix">
+      <div class="float-left messageContainer">
+        <div class="message">
           <h5>{{ message }}</h5>
         </div>
       </div>
@@ -49,7 +57,9 @@ export default Vue.extend({
   },
   data() {
     return {
+      userId: Utils.getUserId(),
       message: "Loading...",
+      user: Utils.getUserDetails(),
       animation: -1,
       // @ts-ignore
       lottieOptions1: { animationData: help1.default },

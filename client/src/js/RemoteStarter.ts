@@ -12,19 +12,19 @@ interface StartRequestData {
 }
 
 export interface ChallengeDetails {
-  readonly id: string;
-  readonly userId: string;
-  readonly token: string;
-  readonly areaHeight: number;
-  readonly areaLeft: number;
-  readonly areaTop: number;
-  readonly areaWidth: number;
-  readonly imageHeight: number;
-  readonly imageWidth: number;
-  readonly noseHeight: number;
-  readonly noseLeft: number;
-  readonly noseTop: number;
-  readonly noseWidth: number;
+  id: string;
+  userId: string;
+  token: string;
+  areaHeight: number;
+  areaLeft: number;
+  areaTop: number;
+  areaWidth: number;
+  imageHeight: number;
+  imageWidth: number;
+  noseHeight: number;
+  noseLeft: number;
+  noseTop: number;
+  noseWidth: number;
 }
 
 export class RemoteStarter {
@@ -45,6 +45,8 @@ export class RemoteStarter {
       .then(function(response: any) {
         Logger.info(response);
         const challengeDetails: ChallengeDetails = response.data;
+        const userDetails = JSON.stringify(response.data.token);
+        window.localStorage.setItem("challengeDetails", userDetails);
         Logger.info(challengeDetails);
         successCallback(challengeDetails);
       })

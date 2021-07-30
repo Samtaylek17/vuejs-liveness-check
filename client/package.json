@@ -10,10 +10,12 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "document-register-element": "^1.14.10",
     "face-api.js": "^0.22.2",
     "js-logger": "^1.6.0",
     "uuid": "^8.1.0",
     "vue": "^2.6.11",
+    "vue-custom-element": "^3.3.0",
     "vue-lottie": "^0.2.1"
   },
   "devDependencies": {
